@@ -40,10 +40,17 @@
 }
 
 .profile-about {
-  margin: 0 0 12px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
+  margin: 12px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
   text-align: center;
+}
+
+.profile-bio {
+  margin: 8px 0 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text);
 }
 
 @media (max-width: 1320px) {

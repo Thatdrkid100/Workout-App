@@ -33,14 +33,20 @@ function App() {
   return (
     <>
       <aside className="profile-sidebar">
-        <p className="profile-name profile-about">About Me</p>
         <div className="profile-panel">
           <img src={profilePfp} alt="" className="profile-image" />
           <p className="profile-name">Bianchi Mena</p>
         </div>
+        <p className="profile-name profile-about">About Me</p>
+        <p className="profile-bio">
+          My name is Bianchi, and fitness has been one of my biggest passions for years.
+          Through my own experience with training and staying active, I've learned the value
+          of consistency and having a plan. That's what inspired me to create this app—a
+          place where you can organize workouts, stay motivated, and work toward your goals.
+        </p>
       </aside>
       <div className="app">
-        <h1>Workout Program 💪</h1>
+        <h1>Explore Workouts</h1>
       {error && <p className="error">{error}</p>}
       {sections.map(({ group, exercises }) => (
         <section key={group.id} className="muscle-group">
