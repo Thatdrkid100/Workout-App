@@ -1,6 +1,6 @@
 export const PROFILE_NAV_ITEMS = [
-  { label: "Dashboard", icon: "home" },
-  { label: "Workout Library", icon: "muscle" },
+  { label: "Dashboard", icon: "home", path: "/" },
+  { label: "Workout Library", icon: "muscle", path: "/workout-library" },
   { label: "Create Workout", icon: "plus" },
   { label: "Program Tracker", icon: "chart" },
   { label: "My Program", icon: "folder" },

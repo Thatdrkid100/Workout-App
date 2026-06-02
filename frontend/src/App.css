@@ -9,8 +9,7 @@
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 32px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
+  padding-top: 24px;
 }
 
 .app-header h1 {
@@ -133,9 +132,37 @@
   cursor: pointer;
 }
 
+.profile-nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.profile-nav-item--disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
 .profile-nav-item:hover .profile-name,
-.profile-nav-item:hover .profile-nav-icon {
+.profile-nav-item:hover .profile-nav-icon,
+.profile-nav-item.is-active .profile-name,
+.profile-nav-item.is-active .profile-nav-icon {
   color: #d4a017;
+}
+
+.profile-nav-item--disabled:hover .profile-name,
+.profile-nav-item--disabled:hover .profile-nav-icon {
+  color: var(--text-h);
+}
+
+.page-shell {
+  min-height: 60vh;
+}
+
+.page-lead {
+  margin: 0;
+  max-width: 42rem;
+  line-height: 1.55;
+  color: var(--text);
 }
 
 .profile-nav-item:first-child {
@@ -243,9 +270,18 @@
 }
 
 .muscle-group-title {
+  display: inline-block;
   margin: 0 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 2px solid var(--border);
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.muscle-group-title:hover {
+  color: #d4a017;
+  border-color: #d4a017;
 }
 
 .exercise-list {
@@ -289,6 +325,28 @@
   margin: 0;
   line-height: 1.5;
   color: var(--text);
+}
+
+.exercise-add-btn {
+  flex: 0 0 72px;
+  align-self: center;
+  width: 56px;
+  height: 56px;
+  margin: 0 8px 0 12px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.exercise-add-btn:hover {
+  color: #d4a017;
+  border-color: #d4a017;
 }
 
 .exercise-card-media {
