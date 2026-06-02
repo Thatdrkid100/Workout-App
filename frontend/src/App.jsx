@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+import profilePfp from "./assets/profile.png";
 import { DEFAULT_EXERCISE_IMAGE, EXERCISE_IMAGES } from "./exerciseImages.js";
 
 function App() {
@@ -30,8 +31,16 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <h1>Workout Program 💪</h1>
+    <>
+      <aside className="profile-sidebar">
+        <p className="profile-name profile-about">About Me</p>
+        <div className="profile-panel">
+          <img src={profilePfp} alt="" className="profile-image" />
+          <p className="profile-name">Bianchi Mena</p>
+        </div>
+      </aside>
+      <div className="app">
+        <h1>Workout Program 💪</h1>
       {error && <p className="error">{error}</p>}
       {sections.map(({ group, exercises }) => (
         <section key={group.id} className="muscle-group">
@@ -57,7 +66,8 @@ function App() {
           </div>
         </section>
       ))}
-    </div>
+      </div>
+    </>
   );
 }
 
