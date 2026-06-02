@@ -38,13 +38,15 @@ function App() {
           <img src={profilePfp} alt="" className="profile-image" />
           <p className="profile-name">Bianchi Mena</p>
         </div>
-        <p className="profile-name profile-about">About Me</p>
-        <p className="profile-bio">
-          My name is Bianchi, and fitness has been one of my biggest passions for years.
-          Through my own experience with training and staying active, I've learned the value
-          of consistency and having a plan. That's what inspired me to create this app—a
-          place where you can organize workouts, stay motivated, and work toward your goals.
-        </p>
+        <div className="profile-about-section">
+          <p className="profile-name profile-about">About Me</p>
+          <p className="profile-bio">
+            My name is Bianchi, and fitness has been one of my biggest passions for years.
+            Through my own experience with training and staying active, I've learned the value
+            of consistency and having a plan. That's what inspired me to create this app—a
+            place where you can organize workouts, stay motivated, and work toward your goals.
+          </p>
+        </div>
         <nav className="profile-nav" aria-label="Site sections">
           {PROFILE_NAV_ITEMS.map(({ label, icon }) => (
             <div key={label} className="profile-nav-item">
@@ -54,8 +56,47 @@ function App() {
           ))}
         </nav>
       </aside>
+      <aside className="workout-sidebar">
+        <h2 className="today-exercise-heading">Today&apos;s Exercises</h2>
+        <p className="workout-day">Wednesday</p>
+        <ul className="workout-plan">
+          <li>Dumbbell lunges — 3 × 6, 45 pounds</li>
+          <li>RDLs — 3 × 10, 50 pounds</li>
+          <li>Quad extensions — 3 × 7, 175 pounds</li>
+          <li>Hamstring curls — 3 × 14, 190 pounds</li>
+          <li>Hanging leg raises — 3 × 15</li>
+          <li>Ab roller — 3 × 6 (first 7, second 6, third 5)</li>
+          <li>Incline 12% — 3.0 mph, 30 minutes, 1.53 miles, 244 calories</li>
+        </ul>
+        <p className="workout-consistency-label">Consistency</p>
+        <p className="workout-consistency-value">7</p>
+      </aside>
       <div className="app">
-        <h1>Explore Workouts</h1>
+        <header className="app-header">
+          <h1>Explore Workouts</h1>
+          <nav className="workout-pagination" aria-label="Workout pages">
+            <button type="button" className="pagination-arrow" aria-label="Previous page">
+              ←
+            </button>
+            <div className="pagination-pages">
+              <button type="button" className="pagination-page" aria-label="Page 1">
+                1
+              </button>
+              <button type="button" className="pagination-page" aria-label="Page 2">
+                2
+              </button>
+              <button type="button" className="pagination-page" aria-label="Page 3">
+                3
+              </button>
+              <button type="button" className="pagination-page" aria-label="Page 4">
+                4
+              </button>
+            </div>
+            <button type="button" className="pagination-arrow" aria-label="Next page">
+              →
+            </button>
+          </nav>
+        </header>
       {error && <p className="error">{error}</p>}
       {sections.map(({ group, exercises }) => (
         <section key={group.id} className="muscle-group">

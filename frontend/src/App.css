@@ -3,12 +3,80 @@
   padding: 0 24px 48px;
 }
 
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.app-header h1 {
+  margin: 0;
+  text-align: left;
+}
+
+.workout-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.pagination-pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 16px;
+}
+
+.pagination-arrow,
+.pagination-page {
+  margin: 0;
+  font: inherit;
+  font-weight: 600;
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.pagination-page {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 0.95rem;
+}
+
+.pagination-arrow {
+  padding: 4px;
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.pagination-arrow:hover,
+.pagination-page:hover {
+  color: #d4a017;
+  border-color: #d4a017;
+}
+
 .profile-sidebar {
+  --profile-gap: 24px;
   position: fixed;
   top: 32px;
   left: 20px;
   width: calc((100vw - min(1126px, 100vw)) / 2 - 40px);
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--profile-gap);
+  padding-right: 12px;
 }
 
 .profile-panel {
@@ -34,27 +102,25 @@
   margin: 12px 0 4px;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--text-h);
   text-align: center;
   letter-spacing: 0.06em;
 }
 
 .profile-about {
-  margin: 12px 0 0;
-  padding-top: 12px;
-  border-top: 1px solid var(--border);
+  margin: 0;
   text-align: center;
 }
 
 .profile-bio {
-  margin: 8px 0 0;
+  margin: 10px 0 0;
   font-size: 0.875rem;
   line-height: 1.5;
   color: var(--text);
 }
 
 .profile-nav {
-  margin-top: 12px;
+  margin: 0;
   padding-top: 12px;
   border-top: 1px solid var(--border);
 }
@@ -64,6 +130,12 @@
   align-items: center;
   gap: 10px;
   margin: 8px 0 0;
+  cursor: pointer;
+}
+
+.profile-nav-item:hover .profile-name,
+.profile-nav-item:hover .profile-nav-icon {
+  color: #d4a017;
 }
 
 .profile-nav-item:first-child {
@@ -79,7 +151,7 @@
   flex-shrink: 0;
   width: 1.15rem;
   height: 1.15rem;
-  color: #fff;
+  color: var(--text-h);
 }
 
 .profile-nav-icon svg {
@@ -88,8 +160,76 @@
   height: 100%;
 }
 
+.workout-sidebar {
+  position: fixed;
+  top: 32px;
+  right: 20px;
+  width: calc((100vw - min(1126px, 100vw)) / 2 - 40px);
+  z-index: 2;
+  text-align: center;
+}
+
+.today-exercise-heading {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+
+.today-exercise-heading:hover {
+  color: #d4a017;
+}
+
+.workout-day {
+  margin: 20px 0 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.workout-plan {
+  margin: 0;
+  padding: 0 0 0 1.1rem;
+  list-style: disc;
+  text-align: left;
+  color: var(--text);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.workout-plan li {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.workout-plan li:last-child {
+  border-bottom: none;
+}
+
+.workout-consistency-label {
+  margin: 20px 0 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.workout-consistency-value {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
 @media (max-width: 1320px) {
-  .profile-sidebar {
+  .profile-sidebar,
+  .workout-sidebar {
     display: none;
   }
 }
