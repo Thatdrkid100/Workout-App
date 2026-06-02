@@ -53,6 +53,41 @@
   color: var(--text);
 }
 
+.profile-nav {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.profile-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 0;
+}
+
+.profile-nav-item:first-child {
+  margin-top: 0;
+}
+
+.profile-nav-item .profile-name {
+  margin: 0;
+  text-align: left;
+}
+
+.profile-nav-icon {
+  flex-shrink: 0;
+  width: 1.15rem;
+  height: 1.15rem;
+  color: #fff;
+}
+
+.profile-nav-icon svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 @media (max-width: 1320px) {
   .profile-sidebar {
     display: none;

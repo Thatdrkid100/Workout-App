@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import profilePfp from "./assets/profile.png";
 import { DEFAULT_EXERCISE_IMAGE, EXERCISE_IMAGES } from "./exerciseImages.js";
+import { PROFILE_NAV_ITEMS, ProfileNavIcon } from "./profileNavIcons.jsx";
 
 function App() {
   const [sections, setSections] = useState([]);
@@ -44,6 +45,14 @@ function App() {
           of consistency and having a plan. That's what inspired me to create this app—a
           place where you can organize workouts, stay motivated, and work toward your goals.
         </p>
+        <nav className="profile-nav" aria-label="Site sections">
+          {PROFILE_NAV_ITEMS.map(({ label, icon }) => (
+            <div key={label} className="profile-nav-item">
+              <ProfileNavIcon name={icon} />
+              <span className="profile-name">{label}</span>
+            </div>
+          ))}
+        </nav>
       </aside>
       <div className="app">
         <h1>Explore Workouts</h1>
