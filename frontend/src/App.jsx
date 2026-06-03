@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { BrowserRouter, NavLink, Outlet, Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import profilePfp from "./assets/profile.png";
@@ -7,6 +8,11 @@ import WorkoutLibraryPage from "./pages/WorkoutLibraryPage.jsx";
 
 function AppShell() {
   const { pathname } = useLocation();
+  const [splitSchedule, setSplitSchedule] = useState(null);
+
+  useEffect(() => {
+    if (pathname !== "/workout-library") setSplitSchedule(null);
+  }, [pathname]);
 
   return (
     <>
@@ -64,7 +70,18 @@ function AppShell() {
           <p className="workout-consistency-value">7</p>
         </aside>
       )}
-      <Outlet />
+      {pathname === "/workout-library" && splitSchedule && (
+        <aside className="workout-sidebar">
+          <h2 className="today-exercise-heading">{splitSchedule.title}</h2>
+          <p className="workout-day">Weekly schedule</p>
+          <ul className="workout-plan">
+            {splitSchedule.days.map((day) => (
+              <li key={day}>{day}</li>
+            ))}
+          </ul>
+        </aside>
+      )}
+      <Outlet context={{ setSplitSchedule }} />
     </>
   );
 }

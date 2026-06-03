@@ -380,3 +380,26 @@
   font-weight: 500;
   color: var(--text);
 }
+
+.split-card .exercise-card-body {
+  min-height: 140px;
+}
+
+.split-view-btn {
+  align-self: flex-end;
+  margin: 16px 0 0 auto;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.split-view-btn:hover {
+  color: #d4a017;
+  border-color: #d4a017;
+}
