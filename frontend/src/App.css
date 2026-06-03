@@ -367,3 +367,16 @@
   padding: 6px;
   box-sizing: border-box;
 }
+
+.split-card-badge {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-h);
+}
+
+.split-frequency {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text);
+}

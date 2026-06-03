@@ -1,14 +1,14 @@
 export const PROFILE_NAV_ITEMS = [
   { label: "Dashboard", icon: "home", path: "/" },
   { label: "Workout Library", icon: "muscle", path: "/workout-library" },
-  { label: "Create Workout", icon: "plus" },
-  { label: "Program Tracker", icon: "chart" },
-  { label: "My Program", icon: "folder" },
-  { label: "Exercise Database", icon: "workout" },
-  { label: "Favorites", icon: "star" },
-  { label: "Blog", icon: "notebook" },
-  { label: "Contact", icon: "phone" },
-  { label: "FAQ", icon: "help" },
+  { label: "Create Workout", icon: "plus", path: "/create-workout" },
+  { label: "Program Tracker", icon: "chart", path: "/program-tracker" },
+  { label: "My Program", icon: "folder", path: "/my-program" },
+  { label: "Exercise Database", icon: "workout", path: "/exercise-database" },
+  { label: "Favorites", icon: "star", path: "/favorites" },
+  { label: "Blog", icon: "notebook", path: "/blog" },
+  { label: "Contact", icon: "phone", path: "/contact" },
+  { label: "FAQ", icon: "help", path: "/faq" },
 ];
 
 const paths = {
