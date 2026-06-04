@@ -4,6 +4,7 @@ import "./App.css";
 import profilePfp from "./assets/profile.png";
 import { PROFILE_NAV_ITEMS, ProfileNavIcon } from "./profileNavIcons.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
+import CreateWorkoutPage from "./pages/CreateWorkoutPage.jsx";
 import WorkoutLibraryPage from "./pages/WorkoutLibraryPage.jsx";
 
 function AppShell() {
@@ -140,15 +141,7 @@ function App() {
               />
             }
           />
-          <Route
-            path="create-workout"
-            element={
-              <PlaceholderPage
-                title="Create Workout"
-                message="Build a custom workout here. Routing to Create Workout is working."
-              />
-            }
-          />
+          <Route path="create-workout" element={<CreateWorkoutPage />} />
           <Route
             path="blog"
             element={

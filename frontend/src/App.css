@@ -403,3 +403,49 @@
   color: #d4a017;
   border-color: #d4a017;
 }
+
+.split-carousel-heading {
+  margin: 48px auto 28px;
+  max-width: 52rem;
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: 0.04em;
+}
+
+.split-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 52rem;
+}
+
+.split-carousel-card {
+  flex: 1;
+  min-width: 0;
+  transition: border-color 0.15s ease;
+}
+
+.split-carousel-card:hover {
+  border-color: #d4a017;
+}
+
+.split-carousel-card:hover .exercise-name,
+.split-carousel-card:hover .split-card-badge {
+  color: #d4a017;
+}
+
+.split-carousel-arrow:hover {
+  color: #d4a017;
+}
+
+.split-carousel-indicator {
+  margin: 16px 0 0;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+}
