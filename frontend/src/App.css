@@ -192,6 +192,10 @@
   top: 32px;
   right: 20px;
   width: calc((100vw - min(1126px, 100vw)) / 2 - 40px);
+  max-height: calc(100vh - 64px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 24px;
   z-index: 2;
   text-align: center;
 }
@@ -236,6 +240,117 @@
 
 .workout-plan li:last-child {
   border-bottom: none;
+}
+
+.workout-sidebar-section {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.workout-sidebar-day {
+  margin: 0 0 10px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-h);
+  text-align: center;
+}
+
+.workout-sidebar-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.workout-sidebar-exercise {
+  display: block;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.workout-sidebar-rest,
+.workout-sidebar-empty {
+  margin: 0;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  color: var(--text);
+  text-align: center;
+}
+
+.create-workout-save-wrap {
+  margin: 48px auto 0;
+  max-width: 52rem;
+  text-align: center;
+}
+
+.create-workout-save-btn {
+  padding: 12px 28px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-h);
+  cursor: pointer;
+}
+
+.create-workout-save-btn:hover:not(:disabled) {
+  color: #d4a017;
+  border-color: #d4a017;
+}
+
+.create-workout-save-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.create-workout-save-msg {
+  margin: 12px 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.saved-program-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 52rem;
+}
+
+.saved-program-card {
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+}
+
+.saved-program-title {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-h);
+}
+
+.saved-program-date {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.saved-program-days {
+  margin-top: 16px;
 }
 
 .workout-consistency-label {
@@ -426,7 +541,12 @@
 .split-carousel-card {
   flex: 1;
   min-width: 0;
+  cursor: pointer;
   transition: border-color 0.15s ease;
+}
+
+.split-carousel-card--selected {
+  border-color: #d4a017;
 }
 
 .split-carousel-card:hover {
@@ -448,4 +568,91 @@
   font-size: 0.9rem;
   font-weight: 600;
   color: var(--text);
+}
+
+.workout-pick-heading {
+  margin: 24px auto 20px;
+  max-width: 52rem;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.workout-pick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin: 0 auto;
+  max-width: 52rem;
+}
+
+.workout-pick-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+  transition: border-color 0.15s ease;
+}
+
+.workout-pick-card:hover {
+  border-color: #d4a017;
+}
+
+.workout-pick-card-media {
+  height: 100px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.workout-pick-card-media .exercise-image {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  padding: 6px;
+}
+
+.workout-pick-card-body {
+  position: relative;
+  flex: 1;
+  padding: 10px 44px 12px 12px;
+}
+
+.workout-pick-add-btn {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.workout-pick-card .exercise-name {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.workout-pick-group {
+  margin: 4px 0 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.workout-pick-card .exercise-description {
+  margin: 8px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

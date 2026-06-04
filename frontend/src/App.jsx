@@ -5,14 +5,17 @@ import profilePfp from "./assets/profile.png";
 import { PROFILE_NAV_ITEMS, ProfileNavIcon } from "./profileNavIcons.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
 import CreateWorkoutPage from "./pages/CreateWorkoutPage.jsx";
+import MyProgramPage from "./pages/MyProgramPage.jsx";
 import WorkoutLibraryPage from "./pages/WorkoutLibraryPage.jsx";
 
 function AppShell() {
   const { pathname } = useLocation();
   const [splitSchedule, setSplitSchedule] = useState(null);
+  const [createWorkoutPlan, setCreateWorkoutPlan] = useState(null);
 
   useEffect(() => {
     if (pathname !== "/workout-library") setSplitSchedule(null);
+    if (pathname !== "/create-workout") setCreateWorkoutPlan(null);
   }, [pathname]);
 
   return (
@@ -82,7 +85,37 @@ function AppShell() {
           </ul>
         </aside>
       )}
-      <Outlet context={{ setSplitSchedule }} />
+      {pathname === "/create-workout" && createWorkoutPlan && (
+        <aside className="workout-sidebar">
+          <h2 className="today-exercise-heading">{createWorkoutPlan.title}</h2>
+          <p className="workout-day">Your program</p>
+          {createWorkoutPlan.slots.map((slot) => (
+            <section key={slot.slotKey} className="workout-sidebar-section">
+              <h3 className="workout-sidebar-day">{slot.label}</h3>
+              {slot.type === "rest" ? (
+                <p className="workout-sidebar-rest">Rest day</p>
+              ) : slot.exercises.length === 0 ? (
+                <p className="workout-sidebar-empty">No exercises yet</p>
+              ) : (
+                <ul className="workout-sidebar-list">
+                  {slot.exercises.map((exercise, i) => (
+                    <li key={`${slot.slotKey}-${exercise.id}-${i}`}>
+                      <span className="workout-sidebar-exercise">{exercise.name}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </section>
+          ))}
+        </aside>
+      )}
+      <Outlet
+        context={{
+          setSplitSchedule,
+          setCreateWorkoutPlan,
+          createWorkoutPlan,
+        }}
+      />
     </>
   );
 }
@@ -114,15 +147,7 @@ function App() {
               />
             }
           />
-          <Route
-            path="my-program"
-            element={
-              <PlaceholderPage
-                title="My Program"
-                message="Build and manage your training program here. Routing to My Program is working."
-              />
-            }
-          />
+          <Route path="my-program" element={<MyProgramPage />} />
           <Route
             path="exercise-database"
             element={
