@@ -1,6 +1,36 @@
 import { useEffect, useState } from "react";
 import { DEFAULT_EXERCISE_IMAGE, EXERCISE_IMAGES } from "../exerciseImages.js";
 
+function WorkoutPagination({ className = "" }) {
+  return (
+    <nav
+      className={`workout-pagination${className ? ` ${className}` : ""}`}
+      aria-label="Workout pages"
+    >
+      <button type="button" className="pagination-arrow" aria-label="Previous page">
+        ←
+      </button>
+      <div className="pagination-pages">
+        <button type="button" className="pagination-page" aria-label="Page 1">
+          1
+        </button>
+        <button type="button" className="pagination-page" aria-label="Page 2">
+          2
+        </button>
+        <button type="button" className="pagination-page" aria-label="Page 3">
+          3
+        </button>
+        <button type="button" className="pagination-page" aria-label="Page 4">
+          4
+        </button>
+      </div>
+      <button type="button" className="pagination-arrow" aria-label="Next page">
+        →
+      </button>
+    </nav>
+  );
+}
+
 export default function DashboardPage() {
   const [sections, setSections] = useState([]);
   const [error, setError] = useState(null);
@@ -32,28 +62,7 @@ export default function DashboardPage() {
     <div className="app">
       <header className="app-header">
         <h1>Explore Workouts</h1>
-        <nav className="workout-pagination" aria-label="Workout pages">
-          <button type="button" className="pagination-arrow" aria-label="Previous page">
-            ←
-          </button>
-          <div className="pagination-pages">
-            <button type="button" className="pagination-page" aria-label="Page 1">
-              1
-            </button>
-            <button type="button" className="pagination-page" aria-label="Page 2">
-              2
-            </button>
-            <button type="button" className="pagination-page" aria-label="Page 3">
-              3
-            </button>
-            <button type="button" className="pagination-page" aria-label="Page 4">
-              4
-            </button>
-          </div>
-          <button type="button" className="pagination-arrow" aria-label="Next page">
-            →
-          </button>
-        </nav>
+        <WorkoutPagination />
       </header>
       {error && <p className="error">{error}</p>}
       {sections.map(({ group, exercises }) => (
@@ -87,6 +96,7 @@ export default function DashboardPage() {
           </div>
         </section>
       ))}
+      <WorkoutPagination className="workout-pagination--bottom" />
     </div>
   );
 }

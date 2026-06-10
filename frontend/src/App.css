@@ -65,6 +65,10 @@
   border-color: #d4a017;
 }
 
+.workout-pagination--bottom {
+  margin-top: 48px;
+}
+
 .profile-sidebar {
   --profile-gap: 24px;
   position: fixed;
